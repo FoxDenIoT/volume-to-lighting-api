@@ -21,10 +21,17 @@ app.get("/setVolume", function (req, res) {
   var fv = kalmanFilter.filter(volume);
   console.log((fv*100).toFixed(2));
   res.send("1");
+  var h = 10;
+  var s = 10;
+  var l = fv;
+  var r = 10;
+  var g = 10;
+  var b = 10;
+  var url = "https://foxden.xyz/updateColor?id=5c_cf_7f_3c_8e_1a&r=" + r + "&g=" + g + "&b=" + b;
   
-  /*client.get(url, function (data, response) {
-    res.send(data);
-  });*/
+  client.get(url, function (data, response) {
+    console.log(data);
+  });
 });
 
 
